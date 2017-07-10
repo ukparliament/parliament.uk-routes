@@ -1,4 +1,4 @@
-  require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
+require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
 
 Rails.application.routes.draw do
   id_format_regex = self.class::ID_FORMAT_REGEX
