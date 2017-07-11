@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Parliament::Engine::Engine => "/parliament_engine"
+  mount Parliament::Engine::Engine => "/parliament-engine"
 
   get 'welcome/index'
   root 'welcome#index'

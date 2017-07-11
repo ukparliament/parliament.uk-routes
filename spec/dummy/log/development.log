@@ -5,9 +5,9 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 475ms (Views: 9.3ms)
 
 
-Started GET "/parliament_engine" for ::1 at 2017-07-06 17:05:14 +0100
+Started GET "/parliament-engine" for ::1 at 2017-07-06 17:05:14 +0100
   
-ActionController::RoutingError (No route matches [GET] "/parliament_engine"):
+ActionController::RoutingError (No route matches [GET] "/parliament-engine"):
   
 actionpack (5.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
 actionpack (5.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
@@ -59,7 +59,7 @@ rack (2.0.3) lib/rack/handler/webrick.rb:86:in `service'
 /Users/watsonb/.rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
 Started GET "/parliament_routing_engine" for ::1 at 2017-07-06 17:06:10 +0100
   
-ActionController::RoutingError (uninitialized constant parliament_engine::HomeController):
+ActionController::RoutingError (uninitialized constant parliament-engine::HomeController):
   
 activesupport (5.1.2) lib/active_support/inflector/methods.rb:271:in `const_get'
 activesupport (5.1.2) lib/active_support/inflector/methods.rb:271:in `block in constantize'
@@ -116,9 +116,9 @@ rack (2.0.3) lib/rack/handler/webrick.rb:86:in `service'
 /Users/watsonb/.rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
 /Users/watsonb/.rvm/rubies/ruby-2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
 Started GET "/parliament_routing_engine" for ::1 at 2017-07-06 17:08:31 +0100
-Processing by parliament_engine::FailuresController#index as HTML
-  Rendering /Users/watsonb/Documents/parliament/parliament_engine/app/views/parliament_routing_engine/failures/index.html.erb within layouts/parliament_routing_engine/application
-  Rendered /Users/watsonb/Documents/parliament/parliament_engine/app/views/parliament_routing_engine/failures/index.html.erb within layouts/parliament_routing_engine/application (0.4ms)
+Processing by parliament-engine::FailuresController#index as HTML
+  Rendering /Users/watsonb/Documents/parliament/parliament-engine/app/views/parliament_routing_engine/failures/index.html.erb within layouts/parliament_routing_engine/application
+  Rendered /Users/watsonb/Documents/parliament/parliament-engine/app/views/parliament_routing_engine/failures/index.html.erb within layouts/parliament_routing_engine/application (0.4ms)
 Completed 200 OK in 343ms (Views: 340.5ms)
 
 
@@ -126,7 +126,7 @@ Completed 200 OK in 343ms (Views: 340.5ms)
   [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
   [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
-Migrating to Createparliament_engineFailures (20170706160850)
+Migrating to Createparliament-engineFailures (20170706160850)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "parliament_routing_engine_failures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
   [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170706160850"]]
