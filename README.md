@@ -54,8 +54,8 @@ end
 ## Getting Started with Development
 To clone the repository and set up the dependencies, run the following:
 ```bash
-git clone https://github.com/bryonywatson1/ParliamentRoutingEngine.git
-cd ParliamentRoutingEngine
+git clone https://github.com/bryonywatson1/parliament_engine.git
+cd parliament_engine
 bundle install
 ```
 

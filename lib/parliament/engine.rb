@@ -1,5 +1,5 @@
 module Parliament
   module Engine
-    require 'parliament/engine/base_engine'
+    require 'parliament/engine/engine'
   end
 end
