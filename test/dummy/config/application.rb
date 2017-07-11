@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "parliament/engine/engine"
+require "parliament/engine/base_engine"
 
 module Dummy
   class Application < Rails::Application

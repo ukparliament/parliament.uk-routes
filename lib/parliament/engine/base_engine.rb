@@ -1,6 +1,6 @@
 module Parliament
   module Engine
-    class Engine < ::Rails::Engine
+    class BaseEngine < ::Rails::Engine
       isolate_namespace Parliament::Engine
 
       config.generators do |g|
