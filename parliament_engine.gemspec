@@ -1,15 +1,15 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "parliament_routing_engine/version"
+require "parliament/engine/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "parliament_routing_engine"
-  s.version     = ParliamentRoutingEngine::VERSION
+  s.name        = "parliament_engine"
+  s.version     = Parliament::Engine::VERSION
   s.authors     = ["Bryony Watson"]
   s.email       = ["watsonb@parliament.uk"]
-  s.summary     = "Summary of ParliamentRoutingEngine."
+  s.summary     = "Summary of parliament_engine."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
