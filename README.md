@@ -1,6 +1,6 @@
 # parliament-engine
 
-[parliament_routing_engine][parliament_routing_engine] is an engine created by the [Parliamentary Digital Service][pds] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
+[parliament-engine][parliament-engine] is an engine created by the [Parliamentary Digital Service][pds] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
 
 [![Build Status][shield-travis]][info-travis] [![Test Coverage][shield-coveralls]][info-coveralls] [![License][shield-license]][info-license]
 
@@ -19,7 +19,7 @@
 - [License](#license)
 
 ## Requirements
-[parliament_routing_engine][parliament_routing_engine] requires the following:
+[parliament-engine][parliament-engine] requires the following:
 * [Ruby][ruby] - [click here][ruby-version] for the exact version
 * [Bundler][bundler]
 * [Rails][rails]
@@ -28,7 +28,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'parliament_routing_engine'
+gem 'parliament-engine'
 ```
 
 And then execute:
@@ -38,7 +38,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install parliament_routing_engine
+$ gem install parliament-engine
 ```
 
 ## Usage
