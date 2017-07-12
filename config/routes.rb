@@ -1,4 +1,8 @@
+# require mapper class which holds methods for routing
 require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
+
+# Using Rails.application.routes.draw as we want to
+# add to the host application's routes, not the engine's routes
 
 Rails.application.routes.draw do
   id_format_regex = self.class::ID_FORMAT_REGEX
