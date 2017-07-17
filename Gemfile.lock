@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    parliament-engine (0.1.0)
+    routes (0.1.0)
       rails (~> 5.1.2)
 
 GEM
@@ -142,7 +142,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  parliament-engine!
+  routes!
   rspec-rails
   sqlite3
 

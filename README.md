@@ -1,6 +1,6 @@
-# parliament-engine
+# routes
 
-[parliament-engine][parliament-engine] is an engine created by the [Parliamentary Digital Service][pds] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
+[routes][routes] is an engine created by the [Parliamentary Digital Service][pds] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
 
 [![Build Status][shield-travis]][info-travis] [![Test Coverage][shield-coveralls]][info-coveralls] [![License][shield-license]][info-license]
 
@@ -19,7 +19,7 @@
 - [License](#license)
 
 ## Requirements
-[parliament-engine][parliament-engine] requires the following:
+[routes][routes] requires the following:
 * [Ruby][ruby] - [click here][ruby-version] for the exact version
 * [Bundler][bundler]
 * [Rails][rails]
@@ -28,7 +28,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'parliament-engine'
+gem 'routes'
 ```
 
 And then execute:
@@ -38,7 +38,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install parliament-engine
+$ gem install routes
 ```
 
 ## Usage
@@ -47,15 +47,15 @@ The engine works in the background adding routes to the application that uses it
 In order to run the engine, mount the engine within your application's routes.rb:
 ```ruby
 Rails.application.routes.draw do
-  mount Parliament::Engine::Engine => "/parliament-engine"
+  mount Parliament::Engine::Engine => "/routes"
 end
 ```
 
 ## Getting Started with Development
 To clone the repository and set up the dependencies, run the following:
 ```bash
-git clone https://github.com/bryonywatson1/parliament-engine.git
-cd parliament-engine
+git clone https://github.com/bryonywatson1/routes.git
+cd routes
 bundle install
 ```
 
