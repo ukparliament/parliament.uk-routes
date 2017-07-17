@@ -6,11 +6,11 @@ require "engine/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "parliament-engine"
+  s.name        = "routes"
   s.version     = Parliament::Engine::VERSION
   s.authors     = ["Bryony Watson"]
   s.email       = ["watsonb@parliament.uk"]
-  s.summary     = "Summary of parliament-engine."
+  s.summary     = "Summary of routes."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
