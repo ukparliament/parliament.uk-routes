@@ -1,4 +1,4 @@
-# routes
+# Parliament.uk-routes
 
 [Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") is an engine created by the [Parliamentary Digital Service](https://github.com/ukparliament "Parliamentary Digital Service") that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
 
@@ -25,7 +25,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'routes'
+gem 'parliament-routes'
 ```
 
 And then execute:
