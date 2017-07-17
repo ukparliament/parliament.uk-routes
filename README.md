@@ -1,8 +1,6 @@
 # routes
 
-[routes][routes] is an engine created by the [Parliamentary Digital Service][pds] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
-
-[![Build Status][shield-travis]][info-travis] [![Test Coverage][shield-coveralls]][info-coveralls] [![License][shield-license]][info-license]
+[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") is an engine created by the [Parliamentary Digital Service](https://github.com/ukparliament "Parliamentary Digital Service") that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
 
 > **NOTE:** This gem is in active development and is likely to change at short notice. It is not recommended that you use this in any production environment.
 
@@ -19,10 +17,9 @@
 - [License](#license)
 
 ## Requirements
-[routes][routes] requires the following:
-* [Ruby][ruby] - [click here][ruby-version] for the exact version
-* [Bundler][bundler]
-* [Rails][rails]
+[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") requires the following:
+* [Ruby](https://www.ruby-lang.org/en/)
+* [Bundler](http://http://bundler.io/)
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -54,7 +51,7 @@ end
 ## Getting Started with Development
 To clone the repository and set up the dependencies, run the following:
 ```bash
-git clone https://github.com/bryonywatson1/routes.git
+git clone https://github.com/ukparliament/parliament.uk-routes.git
 cd routes
 bundle install
 ```
