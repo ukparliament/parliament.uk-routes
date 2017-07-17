@@ -4,8 +4,6 @@
 
 > **NOTE:** This gem is in active development and is likely to change at short notice. It is not recommended that you use this in any production environment.
 
-
-
 ### Contents
 
 - [Requirements](#requirements)
@@ -35,29 +33,22 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install routes
+$ gem install parliament-routes
 ```
 
 ## Usage
 The engine works in the background adding routes to the application that uses it.
 
-In order to run the engine, mount the engine within your application's routes.rb:
-```ruby
-Rails.application.routes.draw do
-  mount Parliament::Engine::Engine => "/routes"
-end
-```
-
 ## Getting Started with Development
 To clone the repository and set up the dependencies, run the following:
 ```bash
 git clone https://github.com/ukparliament/parliament.uk-routes.git
-cd routes
+cd parliament-routes
 bundle install
 ```
 
 ### Running the tests
-We use [RSpec][rspec] as our testing framework and tests can be run using:
+We use [RSpec](http://rspec.info/) as our testing framework and tests can be run using:
 ```bash
 bundle exec rspec
 ```
