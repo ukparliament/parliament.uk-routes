@@ -259,6 +259,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  
   ## Resource
   # /resource/
   scope '/resource', as: 'resource' do
