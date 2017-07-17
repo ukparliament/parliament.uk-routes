@@ -6,7 +6,7 @@ require "engine/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "routes"
+  s.name        = "parliament-routes"
   s.version     = Parliament::Engine::VERSION
   s.authors     = ["Bryony Watson"]
   s.email       = ["watsonb@parliament.uk"]
