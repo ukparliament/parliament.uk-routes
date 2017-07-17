@@ -1,6 +1,6 @@
 # routes
 
-[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") is an engine created by the [Parliamentary Digital Service][https://github.com/ukparliament "Parliamentary Digital Service"] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
+[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") is an engine created by the [pds][https://github.com/ukparliament "pds"] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
 
 > **NOTE:** This gem is in active development and is likely to change at short notice. It is not recommended that you use this in any production environment.
 
@@ -17,10 +17,9 @@
 - [License](#license)
 
 ## Requirements
-[routes][routes] requires the following:
-* [Ruby][ruby] - [click here][ruby-version] for the exact version
-* [Bundler][bundler]
-* [Rails][rails]
+[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") requires the following:
+* [Ruby](https://www.ruby-lang.org/en/)
+* [Bundler](http://http://bundler.io/)
 
 ## Installation
 Add this line to your application's Gemfile:
