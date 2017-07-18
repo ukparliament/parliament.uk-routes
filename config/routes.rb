@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   # /mps
   get '/mps', to: 'home#mps'
 
+  ### Search ###
+  # /search
+  get '/search', to: 'search#index'
+
   ### People ###
   # /people (multiple 'people' scope)
   scope '/people', as: 'people' do
@@ -259,7 +263,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   ## Resource
   # /resource/
   scope '/resource', as: 'resource' do
