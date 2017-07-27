@@ -1,6 +1,8 @@
 # Parliament.uk-routes
 
-[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") is an engine created by the [Parliamentary Digital Service](https://github.com/ukparliament "Parliamentary Digital Service") that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
+[Parliament.uk-routes][parliament.uk-routes] is an engine created by the [Parliamentary Digital Service][parliamentary-digital-service] that holds all of the routes for the UK parliament prototype website, which can then be called upon by any applications that include this gem.
+
+[![License][shield-license]][info-license]
 
 > **NOTE:** This gem is in active development and is likely to change at short notice. It is not recommended that you use this in any production environment.
 
@@ -15,9 +17,10 @@
 - [License](#license)
 
 ## Requirements
-[Parliament.uk-routes](https://github.com/ukparliament/parliament.uk-routes "Parliament.uk-routes") requires the following:
-* [Ruby](https://www.ruby-lang.org/en/)
-* [Bundler](http://http://bundler.io/)
+[Parliament.uk-routes][parliament.uk-routes] requires the following:
+* [Ruby][ruby]
+* [Bundler][bundler]
+* [Rails][rails]
 
 ## Installation
 Add this line to your application's Gemfile:
@@ -48,7 +51,7 @@ bundle install
 ```
 
 ### Running the tests
-We use [RSpec](http://rspec.info/) as our testing framework and tests can be run using:
+We use [RSpec][rspec] as our testing framework and tests can be run using:
 ```bash
 bundle exec rspec
 ```
@@ -64,4 +67,14 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 1. Create a new Pull Request
 
 ## License
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [Open Parliament Licence][info-license].
+
+[parliament.uk-routes]:          https://github.com/ukparliament/parliament.uk-routes
+[parliamentary-digital-service]: https://github.com/ukparliament
+[ruby]:                          https://www.ruby-lang.org/en/
+[bundler]:                       http://bundler.io/
+[rspec]:                         http://rspec.info
+[rails]:                         http://rubyonrails.org
+
+[info-license]:   http://www.parliament.uk/site-information/copyright/open-parliament-licence/
+[shield-license]: https://img.shields.io/badge/license-Open%20Parliament%20Licence-blue.svg
