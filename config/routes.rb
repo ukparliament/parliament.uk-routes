@@ -290,36 +290,30 @@ Rails.application.routes.draw do
     end
   end
 
-  ## Places ##
-  scope '/places', as: 'places' do
+  ## Places
+  # /places
+  scope '/places', as: 'places' do 
     get '/', to: 'places#index'
-  end
 
-  # /places/regions
-  scope '/places', as: 'places' do
-    scope '/regions', as: 'regions' do
+    # /places/regions
+    scope '/regions', as: 'regions' do 
       get '/', to: 'places/regions#index'
     end
-  end
 
-  scope '/places', as: 'places' do
-    # places/:place_id
+    # /places/:place_id
     scope '/:place_id', as: 'show' do
       get '/', to: 'places#show'
 
-      # places/:place_id/constituencies
-      scope '/constituencies', as: 'constituencies' do
+      # /places/:place_id/constituencies
+      scope '/constituencies' do 
         get '/', to: 'places/constituencies#index'
-
         listable('places/constituencies#a_to_z', 'places/constituencies#letters')
 
-        # places/:place_id/constituencies/current
-        scope '/current', as: 'current' do
+        # /places/:place_id/constituencies/current
+        scope '/current' do 
           get '/', to: 'places/constituencies#current'
-
           listable('places/constituencies#a_to_z_current', 'places/constituencies#current_letters')
         end
-
       end
     end
   end
