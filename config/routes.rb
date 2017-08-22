@@ -302,25 +302,25 @@ Rails.application.routes.draw do
     end
   end
 
-  # scope '/places', as: 'places' do
-  #   # places/:place_id
-  #   scope '/:place_id', as: 'show' do
-  #     get '/', to: 'places#show'
-  #
-  #     # places/:place_id/constituencies
-  #     scope '/constituencies', as: 'constituencies' do
-  #       get '/', to: 'places/constituencies#index'
-  #
-  #       listable('places/constituencies#a_to_z', 'places/constituencies#letters')
-  #
-  #       # places/:place_id/constituencies/current
-  #       scope '/current', as: 'current' do
-  #         get '/', to: 'places/constituencies#current'
-  #
-  #         listable('places/constituencies#a_to_z_current', 'places/constituencies#current_letters')
-  #       end
-  #
-  #     end
-  #   end
-  # end
+  scope '/places', as: 'places' do
+    # places/:place_id
+    scope '/:place_id', as: 'show' do
+      get '/', to: 'places#show'
+
+      # places/:place_id/constituencies
+      scope '/constituencies', as: 'constituencies' do
+        get '/', to: 'places/constituencies#index'
+
+        listable('places/constituencies#a_to_z', 'places/constituencies#letters')
+
+        # places/:place_id/constituencies/current
+        scope '/current', as: 'current' do
+          get '/', to: 'places/constituencies#current'
+
+          listable('places/constituencies#a_to_z_current', 'places/constituencies#current_letters')
+        end
+
+      end
+    end
+  end
 end
