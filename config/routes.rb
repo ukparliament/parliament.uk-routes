@@ -15,6 +15,14 @@ Rails.application.routes.draw do
   # /mps
   get '/mps', to: 'home#mps'
 
+  ### Find your constituency ###
+  # /find-your-constituency
+  get '/find-your-constituency', to: 'home#find_your_constituency'
+
+  ### Who should I contact with my issue? ###
+  # /who-should-i-contact-with-my-issue
+  get '/who-should-i-contact-with-my-issue', to: 'meta#who_should_i_contact_with_my_issue'
+
   ### Search ###
   # /search
   get '/search', to: 'search#index'
@@ -290,36 +298,38 @@ Rails.application.routes.draw do
     end
   end
 
-  ## Places ##
-  scope '/places', as: 'places' do
+  ## Places
+  # /places
+  scope '/places', as: 'places' do 
     get '/', to: 'places#index'
   end
 
+
+  ## Places/regions
   # /places/regions
-  scope '/places', as: 'places' do
-    scope '/regions', as: 'regions' do
+  scope '/places', as: 'places' do 
+    scope '/regions', as: 'regions' do 
       get '/', to: 'places/regions#index'
     end
   end
 
-  scope '/places', as: 'places' do
-    # places/:place_id
+  ## Places
+  scope '/places', as: 'places' do 
+
+    # /places/:place_id
     scope '/:place_id', as: 'show' do
       get '/', to: 'places#show'
 
-      # places/:place_id/constituencies
+      # /places/:place_id/constituencies
       scope '/constituencies', as: 'constituencies' do
         get '/', to: 'places/constituencies#index'
-
         listable('places/constituencies#a_to_z', 'places/constituencies#letters')
 
-        # places/:place_id/constituencies/current
+        # /places/:place_id/constituencies/current
         scope '/current', as: 'current' do
           get '/', to: 'places/constituencies#current'
-
           listable('places/constituencies#a_to_z_current', 'places/constituencies#current_letters')
         end
-
       end
     end
   end
