@@ -300,21 +300,21 @@ Rails.application.routes.draw do
 
   ## Places
   # /places
-  scope '/places', as: 'places' do 
+  scope '/places', as: 'places' do
     get '/', to: 'places#index'
   end
 
 
   ## Places/regions
   # /places/regions
-  scope '/places', as: 'places' do 
-    scope '/regions', as: 'regions' do 
+  scope '/places', as: 'places' do
+    scope '/regions', as: 'regions' do
       get '/', to: 'places/regions#index'
     end
   end
 
   ## Places
-  scope '/places', as: 'places' do 
+  scope '/places', as: 'places' do
 
     # /places/:place_id
     scope '/:place_id', as: 'show' do
@@ -324,12 +324,6 @@ Rails.application.routes.draw do
       scope '/constituencies', as: 'constituencies' do
         get '/', to: 'places/constituencies#index'
         listable('places/constituencies#a_to_z', 'places/constituencies#letters')
-
-        # /places/:place_id/constituencies/current
-        scope '/current', as: 'current' do
-          get '/', to: 'places/constituencies#current'
-          listable('places/constituencies#a_to_z_current', 'places/constituencies#current_letters')
-        end
       end
     end
   end
