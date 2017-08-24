@@ -25,7 +25,8 @@ Rails.application.routes.draw do
 
   ### Search ###
   # /search
-  get '/search', to: 'search#index'
+  get '/search',            to: 'search#index'
+  get '/search/opensearch', to: 'search#opensearch', as: :opensearch_description
 
   ### People ###
   # /people (multiple 'people' scope)
