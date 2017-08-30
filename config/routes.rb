@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # require mapper class which holds methods for routing
 require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
 
@@ -54,6 +55,24 @@ Rails.application.routes.draw do
 
       # /people/:person_id/parties
       build_root_and_current_routes('people/parties', 'parties')
+
+      # /people/:person_id/committees
+      scope '/committees', as: 'committees' do
+        scope '/memberships', as: 'memberships' do
+          # /people/:person_id/committees/memberships
+          get '/', to: 'people/committees#memberships'
+
+          scope '/current', as: 'current' do
+            # /people/:person_id/committees/memberships/current
+            get '/', to: 'people/committees/memberships#current'
+          end
+        end
+
+        scope '/chairs', as: 'chairs' do
+          # /people/:person_id/committees/chairs
+          get '/', to: 'people/committees#chairs'
+        end
+      end
     end
 
     # Allow lookups - but ensure they are SECOND in the routes list after /people/:person_id
@@ -151,6 +170,18 @@ Rails.application.routes.draw do
     # /houses/:house_id
     scope '/:house_id' do
       get '/', to: 'houses#show', house_id: id_format_regex
+
+      # /houses/:house_id/committees
+      scope '/committees', as: 'committees' do
+        get '/', to: 'houses/committees#index'
+        listable('houses/committees#a_to_z', 'houses/committees#letters')
+
+        # /houses/:house_id/committees/current
+        scope '/current', as: 'current' do
+          get '/', to: 'houses/committees#current'
+          listable('houses/committees#a_to_z_current', 'houses/committees#current_letters')
+        end
+      end
 
       # /houses/:house_id/members
       build_members_routes('houses/members', current: true)
@@ -325,6 +356,63 @@ Rails.application.routes.draw do
       scope '/constituencies', as: 'constituencies' do
         get '/', to: 'places/constituencies#index'
         listable('places/constituencies#a_to_z', 'places/constituencies#letters')
+      end
+    end
+  end
+
+  ## Committees ##
+  scope '/committees', as: 'committees' do
+    # /committees
+    get '/', to: 'committees#index'
+    post '/lookup', to: 'postcodes#lookup'
+
+    lookupable('committees#lookup_by_letters')
+
+    listable('committees#a_to_z', 'committees#letters')
+
+    # /committees/current
+    scope '/current', as: 'current' do
+      get '/', to: 'committees#current'
+      listable('committees#a_to_z_current', 'committees#current_letters')
+    end
+
+    # /committees/:committee_id
+    scope '/:committee_id', as: 'show' do
+      get '/', to: 'committees#show', committee_id: id_format_regex
+
+      # /committees/:committee_id/memberships
+      scope '/memberships', as: 'memberships' do
+        get '/', to: 'committees/memberships#index'
+        listable('committees/memberships#a_to_z', 'committees/memberships#letters')
+
+        # /committees/:committee_id/memberships/current
+        scope '/current', as: 'current' do
+          get '/', to: 'memberships#current'
+        end
+      end
+
+      # /committees/:committee_id/chairs
+      scope '/chairs', as: 'chairs' do
+        get '/', to: 'committees/chairs#index'
+      end
+
+      # /committees/:committee_id/sub-committees
+      scope '/sub-committees', as: 'sub_committees' do
+        get '/', to: 'committees/sub_committees#index'
+
+        scope '/current', as: 'current' do
+          get '/', to: 'sub_committees#current'
+        end
+      end
+
+      # /committees/:committee_id/houses
+      scope '/houses', as: 'houses' do
+        get '/', to: 'committees/houses#index'
+      end
+
+      # /committees/:committee_id/parent
+      scope '/parent', as: 'parent' do
+        get '/', to: 'committees#parent'
       end
     end
   end
