@@ -61,7 +61,7 @@ Rails.application.routes.draw do
       scope '/committees', as: 'committees' do
         scope '/memberships', as: 'memberships' do
           # /people/:person_id/committees/memberships
-          get '/', to: 'people/committees#memberships'
+          get '/', to: 'people/committees/memberships#index'
 
           scope '/current', as: 'current' do
             # /people/:person_id/committees/memberships/current
@@ -69,9 +69,9 @@ Rails.application.routes.draw do
           end
         end
 
+        # /people/:person_id/committees/chairs
         scope '/chairs', as: 'chairs' do
-          # /people/:person_id/committees/chairs
-          get '/', to: 'people/committees#chairs'
+          get '/', to: 'people/committees/chairs#index'
         end
       end
     end
