@@ -1,0 +1,6 @@
+sudo: required
+
+language: generic
+
+script:
+  - make test

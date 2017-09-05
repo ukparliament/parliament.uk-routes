@@ -14,3 +14,7 @@ deploy_to_release:
 	gem build *.gemspec
 	gem push *.gem
 	rm *.gem
+
+test:
+	@bundle install
+	@rspec
