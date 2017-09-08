@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
       # /people/:person_id/committees
       scope '/committees', as: 'committees' do
+        get '/', to: 'committees#index'
+
         scope '/memberships', as: 'memberships' do
           # /people/:person_id/committees/memberships
           get '/', to: 'people/committees/memberships#index'
