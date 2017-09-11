@@ -59,7 +59,7 @@ Rails.application.routes.draw do
 
       # /people/:person_id/committees
       scope '/committees', as: 'committees' do
-        get '/', to: 'committees#index'
+        get '/', to: 'people/committees#index'
 
         scope '/memberships', as: 'memberships' do
           # /people/:person_id/committees/memberships
@@ -367,7 +367,6 @@ Rails.application.routes.draw do
   scope '/committees', as: 'committees' do
     # /committees
     get '/', to: 'committees#index'
-    post '/lookup', to: 'postcodes#lookup'
 
     lookupable('committees#lookup_by_letters')
 
