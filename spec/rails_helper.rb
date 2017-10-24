@@ -4,7 +4,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative File.expand_path('../dummy/config/environment', __FILE__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rails'
 

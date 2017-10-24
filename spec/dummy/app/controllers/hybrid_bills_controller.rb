@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class HybridBillsController < ApplicationController
   # Dummy application index route renders two links to test routing from engine has been added
   def index
   end
@@ -7,4 +7,7 @@ class PeopleController < ApplicationController
   def show
   end
 
+  def new
+  end
+  
 end
