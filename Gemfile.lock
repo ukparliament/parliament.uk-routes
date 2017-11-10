@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    parliament-routes (0.5.0)
+    parliament-routes (0.5.1)
 
 GEM
   remote: https://rubygems.org/
@@ -151,4 +151,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.16.0.pre.1
+   1.16.0
