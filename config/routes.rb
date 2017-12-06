@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get '/who-should-i-contact-with-my-issue', to: 'meta#who_should_i_contact_with_my_issue'
 
 
+  ### Articles ###
+  # /articles/:id
+  get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
+
   ### Hybrid Bill Petitions ###
   # /petition-a-hybrid-bill
   get  '/petition-a-hybrid-bill',                                         to: 'hybrid_bills#index',       as: :hybrid_bills
