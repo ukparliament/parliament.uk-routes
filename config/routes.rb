@@ -27,10 +27,12 @@ Rails.application.routes.draw do
 
   ### Hybrid Bill Petitions ###
   # /petition-a-hybrid-bill
-  get  '/petition-a-hybrid-bill',                          to: 'hybrid_bills#index', as: :hybrid_bills
-  get  '/petition-a-hybrid-bill/:bill_id',                 to: 'hybrid_bills#show',  as: :hybrid_bill
-  post '/petition-a-hybrid-bill/:bill_id',                 to: 'hybrid_bills#show'
-  get '/petition-a-hybrid-bill/:bill_id/email-a-petition', to: 'hybrid_bills#email', as: :hybrid_bill_email
+  get  '/petition-a-hybrid-bill',                                         to: 'hybrid_bills#index',       as: :hybrid_bills
+  get  '/petition-a-hybrid-bill/:bill_id',                                to: 'hybrid_bills#show',        as: :hybrid_bill
+  post '/petition-a-hybrid-bill/:bill_id',                                to: 'hybrid_bills#show'
+  get  '/petition-a-hybrid-bill/:bill_id/email-a-petition',               to: 'hybrid_bills#email',       as: :hybrid_bill_email
+  post '/petition-a-hybrid-bill/:bill_id/email-a-petition',               to: 'hybrid_bills#choose_type', as: :hybrid_bill_email_type
+  get  '/petition-a-hybrid-bill/:bill_id/complete-your-petition-online',  to: 'hybrid_bills#redirect',    as: :hybrid_bill_redirect
 
 
   ### Search ###
