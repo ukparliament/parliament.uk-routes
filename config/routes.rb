@@ -24,10 +24,12 @@ Rails.application.routes.draw do
   # /who-should-i-contact-with-my-issue
   get '/who-should-i-contact-with-my-issue', to: 'meta#who_should_i_contact_with_my_issue'
 
-
   ### Articles ###
-  # /articles/:id
   get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
+
+  ### Topics ###
+  get '/topics/:topic_id', to: 'topics#show', topic_id: id_format_regex, as: :topic
+  get '/topics', to: 'topics#index', as: :topics
 
   ### Hybrid Bill Petitions ###
   # /petition-a-hybrid-bill
@@ -37,7 +39,6 @@ Rails.application.routes.draw do
   get  '/petition-a-hybrid-bill/:bill_id/email-a-petition',               to: 'hybrid_bills#email',       as: :hybrid_bill_email
   post '/petition-a-hybrid-bill/:bill_id/email-a-petition',               to: 'hybrid_bills#choose_type', as: :hybrid_bill_email_type
   get  '/petition-a-hybrid-bill/:bill_id/complete-your-petition-online',  to: 'hybrid_bills#redirect',    as: :hybrid_bill_redirect
-
 
   ### Search ###
   # /search
