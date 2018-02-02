@@ -383,6 +383,67 @@ Rails.application.routes.draw do
     end
   end
 
+
+  scope '/groups', as: 'group' do
+    # /groups/:group_id
+    scope '/:group_id' do
+      get '/', to: 'groups#show', group_id: id_format_regex
+
+      # /groups/:group_id/houses
+      scope '/houses', as: 'houses' do
+        get '/', to: 'groups/houses#index'
+      end
+
+      # /groups/:group_id/positions
+      scope '/positions', as: 'positions' do
+        get '/', to: 'groups/positions#index'
+
+        scope 'chairs', as: 'chairs' do
+          get '/', to: 'groups/positions/chairs#index'
+          scope '/current', as: 'current' do
+            get '/', to: 'groups/positions/chairs#current'
+          end
+        end
+        scope '/current', as: 'current' do
+          get '/', to: 'groups/positions#current'
+        end
+      end
+
+    end
+  end
+
+  ## Groups
+  scope '/groups', as: 'groups' do
+    # /groups
+
+    get '/', to: 'groups#index'
+
+    listable('groups#a_to_z', 'groups#letters')
+
+    # /groups/government-departments
+    scope '/government-organisations', as: 'government_organisations' do
+      get '/', to: 'groups/government_organisations#index'
+      listable('groups/government_organisations#a_to_z', 'groups/government_organisations#letters')
+
+      scope '/current', as: 'current' do
+        get '/', to: 'groups/government_organisations#current'
+        listable('groups/government_organisations#a_to_z_current', 'groups/government_organisations#current_letters')
+      end
+    end
+
+    post '/lookup', to: 'groups#lookup'
+    scope '/current', as: 'current' do
+      get '/', to: 'groups#current'
+
+      listable('groups#a_to_z_current', 'groups#current_letters')
+    end
+    lookupable('groups#lookup_by_letters')
+
+
+  end
+
+
+
   ## Committees ##
   scope '/committees', as: 'committees' do
     # /committees
