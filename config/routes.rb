@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   ### Articles ###
   get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
 
-  ### Topics ###
-  get '/topics/:topic_id', to: 'topics#show', topic_id: id_format_regex, as: :topic
-  get '/topics', to: 'topics#index', as: :topics
+  ### Concepts ###
+  get '/concepts/:concept_id', to: 'concepts#show', concept_id: id_format_regex, as: :concept
+  get '/concepts', to: 'concepts#index', as: :concepts
 
   ### Hybrid Bill Petitions ###
   # /petition-a-hybrid-bill
