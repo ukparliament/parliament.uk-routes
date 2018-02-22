@@ -28,8 +28,12 @@ Rails.application.routes.draw do
   get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
 
   ### Concepts ###
-  get '/concepts/:concept_id', to: 'concepts#show', concept_id: id_format_regex, as: :concept
-  get '/concepts', to: 'concepts#index', as: :concepts
+  get '/concepts',             to: 'concepts#index', as: :concepts
+  get '/concepts/:concept_id', to: 'concepts#show',  as: :concept, concept_id: id_format_regex
+
+  ### Collections ###
+  get '/collections',                to: 'collections#index', as: :collections
+  get '/collections/:collection_id', to: 'collections#show',  as: :collection, collection_id: id_format_regex
 
   ### Hybrid Bill Petitions ###
   # /petition-a-hybrid-bill
