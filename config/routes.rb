@@ -394,6 +394,11 @@ Rails.application.routes.draw do
         get '/', to: 'groups/houses#index'
       end
 
+      # /groups/:group_id/memberships
+      scope '/houses', as: 'memberships' do
+        get '/', to: 'groups/memberships#index'
+      end
+
       # /groups/:group_id/positions
       scope '/positions', as: 'positions' do
         get '/', to: 'groups/positions#index'
