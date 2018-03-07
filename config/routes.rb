@@ -7,6 +7,7 @@ require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
 
 Rails.application.routes.draw do
   id_format_regex = self.class::ID_FORMAT_REGEX
+  id_or_schema_format_regex = self.class::ID_OR_SCHEMA_FORMAT_REGEX
 
   ### Root ###
   # /
@@ -332,7 +333,7 @@ Rails.application.routes.draw do
   scope '/resource', as: 'resource' do
     get '/', to: 'resource#index'
     scope '/:resource_id' do
-      get '/', to: 'resource#show', resource_id: id_format_regex
+      get '/', to: 'resource#show', resource_id: id_or_schema_format_regex
     end
   end
 
