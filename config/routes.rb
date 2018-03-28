@@ -390,19 +390,18 @@ Rails.application.routes.draw do
     scope '/:group_id' do
       get '/', to: 'groups#show', group_id: id_format_regex
 
+      # /groups/:group_id/members
+      scope '/members', as: 'members' do
+        get '/', to: 'groups/members#index'
+
+        # /groups/:group_id/members/current
+        scope '/current', as: 'current' do 
+          get '/', to: 'groups/members#current'
+        end 
+      end
       # /groups/:group_id/houses
       scope '/houses', as: 'houses' do
         get '/', to: 'groups/houses#index'
-      end
-
-      # /groups/:group_id/memberships
-      scope '/memberships', as: 'memberships' do
-        get '/', to: 'groups/memberships#index'
-
-        # /groups/:group_id/memberships/current
-        scope '/current', as: 'current' do 
-          get '/', to: 'groups/memberships#current'
-        end 
       end
       # /groups/:group_id/positions
       scope '/positions', as: 'positions' do
