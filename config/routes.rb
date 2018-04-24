@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   ### Articles ###
   get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
 
+  ### Questions ###
+  get '/questions/:question_id', to: 'questions#show', question_id: id_format_regex, as: :question
+
+
   ### Concepts ###
   get '/concepts',             to: 'concepts#index', as: :concepts
   get '/concepts/:concept_id', to: 'concepts#show',  as: :concept, concept_id: id_format_regex
@@ -395,9 +399,9 @@ Rails.application.routes.draw do
         get '/', to: 'groups/members#index'
 
         # /groups/:group_id/members/current
-        scope '/current', as: 'current' do 
+        scope '/current', as: 'current' do
           get '/', to: 'groups/members#current'
-        end 
+        end
       end
       # /groups/:group_id/houses
       scope '/houses', as: 'houses' do

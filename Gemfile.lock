@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    parliament-routes (0.5.6)
+    parliament-routes (0.6.2)
 
 GEM
   remote: https://rubygems.org/
