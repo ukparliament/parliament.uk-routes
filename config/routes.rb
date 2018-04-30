@@ -393,13 +393,14 @@ Rails.application.routes.draw do
     scope '/:group_id' do
       get '/', to: 'groups#show', group_id: id_format_regex
 
-      # /groups/:group_id/members
-      scope '/members', as: 'members' do
-        get '/', to: 'groups/members#index'
+      # /groups/:group_id/memberships
+      scope '/memberships', as: 'memberships' do
+        get '/', to: 'groups/memberships#index'
+        listable('groups/memberships#a_to_z', 'groups/memberships#letters')
 
         # /groups/:group_id/members/current
         scope '/current', as: 'current' do
-          get '/', to: 'groups/members#current'
+          get '/', to: 'groups/memberships#current'
         end
       end
       # /groups/:group_id/houses
@@ -444,14 +445,14 @@ Rails.application.routes.draw do
     end
 
     post '/lookup', to: 'groups#lookup'
+
     scope '/current', as: 'current' do
       get '/', to: 'groups#current'
 
       listable('groups#a_to_z_current', 'groups#current_letters')
     end
+
     lookupable('groups#lookup_by_letters')
-
-
   end
 
 
