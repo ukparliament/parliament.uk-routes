@@ -347,7 +347,6 @@ Rails.application.routes.draw do
     get '/cookie-policy', to: 'meta#cookie_policy'
   end
 
-
   ## Media
   # /media/
   scope '/media', as: 'media' do
@@ -398,25 +397,29 @@ Rails.application.routes.draw do
         get '/', to: 'groups/memberships#index'
         listable('groups/memberships#a_to_z', 'groups/memberships#letters')
 
-        # /groups/:group_id/members/current
+        # /groups/:group_id/memberships/current
         scope '/current', as: 'current' do
           get '/', to: 'groups/memberships#current'
         end
       end
+
       # /groups/:group_id/houses
       scope '/houses', as: 'houses' do
         get '/', to: 'groups/houses#index'
       end
+
       # /groups/:group_id/positions
       scope '/positions', as: 'positions' do
         get '/', to: 'groups/positions#index'
 
         scope 'chairs', as: 'chairs' do
           get '/', to: 'groups/positions/chairs#index'
+
           scope '/current', as: 'current' do
             get '/', to: 'groups/positions/chairs#current'
           end
         end
+
         scope '/current', as: 'current' do
           get '/', to: 'groups/positions#current'
         end
