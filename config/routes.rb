@@ -459,6 +459,17 @@ Rails.application.routes.draw do
       end
     end
 
+    # /groups/committees
+    scope '/committees', as: 'committees' do
+      get '/', to: 'groups/committees#index'
+      listable('groups/committees#a_to_z', 'groups/committees#letters')
+
+      scope '/current', as: 'current' do
+        get '/', to: 'groups/committees#current'
+        listable('groups/committees#a_to_z_current', 'groups/committees#current_letters')
+      end
+    end
+
     post '/lookup', to: 'groups#lookup'
 
     scope '/current', as: 'current' do
@@ -476,7 +487,6 @@ Rails.application.routes.draw do
   scope '/committees', as: 'committees' do
     # /committees
     get '/', to: 'committees#index'
-
     lookupable('committees#lookup_by_letters')
 
     listable('committees#a_to_z', 'committees#letters')
