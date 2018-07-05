@@ -93,6 +93,31 @@ Rails.application.routes.draw do
       # /people/:person_id/parties
       build_root_and_current_routes('people/parties', 'parties')
 
+      # /people/:person_id/associations
+      scope '/associations', as: 'associations' do
+        get '/', to: 'people/associations#index'
+
+        scope '/grouped-by', as: 'grouped_by' do
+          # /people/:person_id/associations/grouped-by
+          get '/', to: 'people/associations/grouped_by#index'
+
+          scope '/opposition', as: 'opposition' do
+            # /people/:person_id/associations/grouped-by/opposition
+            get '/', to: 'people/associations/grouped_by/opposition#index'
+          end
+
+          scope '/government', as: 'government' do
+            # /people/:person_id/associations/grouped-by/government
+            get '/', to: 'people/associations/grouped_by/government#index'
+          end
+
+          scope '/formal-bodies', as: 'formal_bodies' do
+            # /people/:person_id/associations/grouped-by/formal-bodies
+            get '/', to: 'people/associations/grouped_by/formal_bodies#index'
+          end
+        end
+      end
+
       # /people/:person_id/committees
       scope '/committees', as: 'committees' do
         get '/', to: 'people/committees#index'
@@ -448,7 +473,7 @@ Rails.application.routes.draw do
 
     listable('groups#a_to_z', 'groups#letters')
 
-    # /groups/government-departments
+    # /groups/government-organisations
     scope '/government-organisations', as: 'government_organisations' do
       get '/', to: 'groups/government_organisations#index'
       listable('groups/government_organisations#a_to_z', 'groups/government_organisations#letters')
