@@ -118,6 +118,16 @@ Rails.application.routes.draw do
         end
       end
 
+      # /people/:person_id/questions
+      scope '/questions', as: 'questions' do
+        get '/', to: 'people/questions#index'
+
+        scope '/written', as: 'written' do
+          # /people/:person_id/questions/written
+          get '/', to: 'people/questions/written#index'
+        end
+      end
+
       # /people/:person_id/committees
       scope '/committees', as: 'committees' do
         get '/', to: 'people/committees#index'
