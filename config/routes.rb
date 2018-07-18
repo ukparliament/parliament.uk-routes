@@ -472,6 +472,19 @@ Rails.application.routes.draw do
         end
       end
 
+      # /groups/:group_id/questions
+      scope '/questions', as: 'questions' do
+
+        # /groups/:group_id/written
+        #
+        scope '/written', as: 'written' do
+
+          # /groups/:group_id/written/answered
+          scope '/answered', as: 'answered' do
+            get '/', to: 'groups/questions/written/answered#index'
+          end
+        end
+      end
     end
   end
 
