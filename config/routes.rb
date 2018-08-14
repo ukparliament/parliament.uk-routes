@@ -26,8 +26,8 @@ Rails.application.routes.draw do
   get '/who-should-i-contact-with-my-issue', to: 'meta#who_should_i_contact_with_my_issue'
 
   ### Statutory Instruments ###
-  # /statutory-instruments
   get '/statutory-instruments', to: 'statutory_instruments#index'
+  get '/statutory-instruments/:statutory_instrument_id', to: 'statutory_instruments#show'
 
   ## Work Packages ##
   get '/work-packages',                  to: 'work_packages#index', as: :work_packages
