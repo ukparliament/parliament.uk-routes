@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   # /who-should-i-contact-with-my-issue
   get '/who-should-i-contact-with-my-issue', to: 'meta#who_should_i_contact_with_my_issue'
 
+  ### Proposed Negative Statutory Instruments ###
+  get '/proposed_negative-statutory-instruments', to: 'proposed_negative_statutory_instruments#index'
+  get '/proposed-negative-statutory-instruments/:proposed_negative_statutory_instrument_id', to: 'proposed_negative_statutory_instruments#show'
+
   ### Statutory Instruments ###
   get '/statutory-instruments', to: 'statutory_instruments#index'
   get '/statutory-instruments/:statutory_instrument_id', to: 'statutory_instruments#show'
