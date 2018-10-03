@@ -489,6 +489,11 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      # /groups/:group_id/layings
+      scope '/layings', as: 'layings' do
+        get '/', to: 'groups/layings#index'
+      end
     end
   end
 
