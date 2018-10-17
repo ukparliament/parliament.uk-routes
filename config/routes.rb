@@ -490,9 +490,17 @@ Rails.application.routes.draw do
         end
       end
 
-      # /groups/:group_id/layings
-      scope '/layings', as: 'layings' do
-        get '/', to: 'groups/layings#index'
+      # /groups/:group_id/made-available
+      scope '/made-available' do
+
+        # /groups/:group_id/made-available/availability-types
+        scope '/availability-types' do
+
+          # /groups/:group_id/made-available/availability-types/layings
+          scope '/layings', as: 'layings' do
+            get '/', to: 'groups/layings#index'
+          end
+        end
       end
     end
   end
