@@ -549,4 +549,25 @@ Rails.application.routes.draw do
 
     lookupable('groups#lookup_by_letters')
   end
+
+  ## Procedure steps
+  scope '/procedure-steps', as: 'procedure_steps' do
+
+    # /procedure-steps
+    get '/', to: 'procedure_steps#index'
+  end
+
+  ## Procedure step
+  scope '/procedure-steps', as: 'procedure_step' do
+
+    # /procedure-steps/:procedure_step_id
+    scope '/:procedure_step_id' do
+      get '/', to: 'procedure_steps#show'
+
+      # /procedure-steps/:procedure_step_id/work-packages
+      scope '/work-packages', as: 'work_packages' do
+        get '/', to: 'procedure_steps/work_packages#index'
+      end
+    end
+  end
 end
