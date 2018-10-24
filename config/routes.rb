@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   ### Find a Statutory Instrument ###
   # /find-a-statutory-instrument
-  get '/find-your-constituency', to: 'home#find_a_statutory_instrument'
+  get '/find-a-statutory-instrument', to: 'home#find_a_statutory_instrument'
 
   ### Who should I contact with my issue? ###
   # /who-should-i-contact-with-my-issue
