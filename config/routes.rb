@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   # /who-should-i-contact-with-my-issue
   get '/who-should-i-contact-with-my-issue', to: 'meta#who_should_i_contact_with_my_issue'
 
+  ### Laying Bodies ###
+  get '/laying-bodies', to: 'laying_bodies#index', as: :laying_bodies
+
   ### Proposed Negative Statutory Instruments ###
   get '/proposed-negative-statutory-instruments', to: 'proposed_negative_statutory_instruments#index', as: :proposed_negative_statutory_instruments
   get '/proposed-negative-statutory-instruments/:proposed_negative_statutory_instrument_id', to: 'proposed_negative_statutory_instruments#show', as: :proposed_negative_statutory_instrument
