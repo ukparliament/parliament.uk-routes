@@ -40,10 +40,6 @@ Rails.application.routes.draw do
   get '/statutory-instruments', to: 'statutory_instruments#index', as: :statutory_instruments
   get '/statutory-instruments/:statutory_instrument_id', to: 'statutory_instruments#show', as: :statutory_instrument
 
-  ## Work Packages ##
-  get '/work-packages',                  to: 'work_packages#index', as: :work_packages
-  get '/work-packages/:work_package_id', to: 'work_packages#show',  as: :work_package
-
   ## Procedures ##
   get '/procedures',                to: 'procedures#index', as: :procedures
   get '/procedures/:procedure_id', to: 'procedures#show',  as: :procedure
@@ -573,6 +569,44 @@ Rails.application.routes.draw do
       scope '/work-packages', as: 'work_packages' do
         get '/', to: 'procedure_steps/work_packages#index'
       end
+    end
+  end
+
+  ### Work Packages ###
+
+  # /work-packages (multiple 'work packages' scope)
+  scope '/work-packages', as: 'work_packages' do
+    get '/', to: 'work_packages#index'
+
+    # /work-packages/current
+    scope '/current', as: 'current' do
+      get '/', to: 'work_packages#current'
+    end
+
+    # /work-packages/paper-types
+    scope '/paper-types', as: 'paper_types' do
+      get '/', to: 'work_packages/paper_types#index'
+    end
+
+    scope '/paper-types', as: 'paper_type' do
+      # /work-packages/paper-types/:paper-type
+      paper_type = ['statutory-instruments', 'proposed-negative-statutory-instruments']
+
+      scope '/:paper_type', constraints: lambda { |req| paper_type.include?(req.params[:paper_type]) } do
+        get '/', to: 'work_packages/paper_types#show'
+
+        # /work-packages/paper-types/:paper-type/current
+        scope '/current', as: 'current' do
+          get '/', to: 'work_packages/paper_types#current'
+        end
+      end
+    end
+  end
+
+  # /work-packages/:work_package_id
+  scope '/work-packages', as: 'work_package' do
+    scope '/:work_package_id' do
+      get '/', to: 'work_packages#show'
     end
   end
 end
