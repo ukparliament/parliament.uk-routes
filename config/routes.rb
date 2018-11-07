@@ -6,7 +6,7 @@ require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
 # add to the host application's routes, not the engine's routes
 
 Rails.application.routes.draw do
-  id_format_regex = self.class::ID_FORMAT_REGEX
+  id_format_regex           = self.class::ID_FORMAT_REGEX
   id_or_schema_format_regex = self.class::ID_OR_SCHEMA_FORMAT_REGEX
 
   ### Root ###
@@ -40,10 +40,6 @@ Rails.application.routes.draw do
   get '/statutory-instruments', to: 'statutory_instruments#index', as: :statutory_instruments
   get '/statutory-instruments/:statutory_instrument_id', to: 'statutory_instruments#show', as: :statutory_instrument
 
-  ## Procedures ##
-  get '/procedures',                to: 'procedures#index', as: :procedures
-  get '/procedures/:procedure_id', to: 'procedures#show',  as: :procedure
-
   ### Articles ###
   get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
 
@@ -51,27 +47,27 @@ Rails.application.routes.draw do
   get '/questions/:question_id', to: 'questions#show', question_id: id_format_regex, as: :question
 
   ### Concepts ###
-  get '/concepts',             to: 'concepts#index', as: :concepts
-  get '/concepts/:concept_id', to: 'concepts#show',  as: :concept, concept_id: id_format_regex
+  get '/concepts', to: 'concepts#index', as: :concepts
+  get '/concepts/:concept_id', to: 'concepts#show', as: :concept, concept_id: id_format_regex
 
   ### Collections ###
-  get '/collections',                to: 'collections#index', as: :collections
-  get '/collections/:collection_id', to: 'collections#show',  as: :collection, collection_id: id_format_regex
+  get '/collections', to: 'collections#index', as: :collections
+  get '/collections/:collection_id', to: 'collections#show', as: :collection, collection_id: id_format_regex
 
   ### Hybrid Bill Petitions ###
   # /petition-a-hybrid-bill
-  get  '/petition-a-hybrid-bill',                                         to: 'hybrid_bills#index',       as: :hybrid_bills
-  get  '/petition-a-hybrid-bill/:bill_id',                                to: 'hybrid_bills#show',        as: :hybrid_bill
-  post '/petition-a-hybrid-bill/:bill_id',                                to: 'hybrid_bills#show'
-  get  '/petition-a-hybrid-bill/:bill_id/email-a-petition',               to: 'hybrid_bills#email',       as: :hybrid_bill_email
-  post '/petition-a-hybrid-bill/:bill_id/email-a-petition',               to: 'hybrid_bills#choose_type', as: :hybrid_bill_email_type
-  get  '/petition-a-hybrid-bill/:bill_id/complete-your-petition-online',  to: 'hybrid_bills#redirect',    as: :hybrid_bill_redirect
+  get '/petition-a-hybrid-bill', to: 'hybrid_bills#index', as: :hybrid_bills
+  get '/petition-a-hybrid-bill/:bill_id', to: 'hybrid_bills#show', as: :hybrid_bill
+  post '/petition-a-hybrid-bill/:bill_id', to: 'hybrid_bills#show'
+  get '/petition-a-hybrid-bill/:bill_id/email-a-petition', to: 'hybrid_bills#email', as: :hybrid_bill_email
+  post '/petition-a-hybrid-bill/:bill_id/email-a-petition', to: 'hybrid_bills#choose_type', as: :hybrid_bill_email_type
+  get '/petition-a-hybrid-bill/:bill_id/complete-your-petition-online', to: 'hybrid_bills#redirect', as: :hybrid_bill_redirect
 
   ### Search ###
   # /search
-  get '/search',            to: 'search#index',      as: :search
+  get '/search', to: 'search#index', as: :search
   get '/search/opensearch', to: 'search#opensearch', as: :opensearch_description
-  get '/search/redirect',   to: 'search#redirect',   as: :redirect
+  get '/search/redirect', to: 'search#redirect', as: :redirect
 
   ### People ###
   # /people (multiple 'people' scope)
@@ -607,6 +603,28 @@ Rails.application.routes.draw do
   scope '/work-packages', as: 'work_package' do
     scope '/:work_package_id' do
       get '/', to: 'work_packages#show'
+    end
+  end
+
+  # /procedures
+  scope '/procedures', as: 'procedures' do
+    get '/', to: 'procedures#index'
+  end
+
+  # /procedures/:procedure_id
+  scope '/procedures', as: 'procedure' do
+    scope '/:procedure_id' do
+      get '/', to: 'procedures#show'
+
+      # /procedures/:procedure_id/work-packages
+      scope '/work-packages', as: 'work_packages' do
+        get '/', to: 'procedures/work_packages#index'
+
+        # /procedures/:procedure_id/work-packages/current
+        scope '/current', as: 'current' do
+          get '/', to: 'procedures/work_packages#current'
+        end
+      end
     end
   end
 end
