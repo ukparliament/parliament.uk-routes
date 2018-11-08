@@ -564,6 +564,11 @@ Rails.application.routes.draw do
       # /procedure-steps/:procedure_step_id/work-packages
       scope '/work-packages', as: 'work_packages' do
         get '/', to: 'procedure_steps/work_packages#index'
+
+        # /procedure-steps/:procedure_step_id/work-packages/current
+        scope '/current', as: 'current' do
+          get '/', to: 'procedure_steps/work_packages#current'
+        end
       end
     end
   end
