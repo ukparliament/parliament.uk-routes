@@ -497,9 +497,9 @@ Rails.application.routes.draw do
         scope '/availability-types', as: 'availability_types' do
           get '/', to: 'groups/made_available/availability_types#index'
 
-          # /groups/:group_id/made-available/availability-types/layings
-          scope '/layings', as: 'layings' do
-            get '/', to: 'groups/made_available/availability_types/layings#index'
+          # /groups/:group_id/made-available/availability-types/laid-papers
+          scope '/laid-papers', as: 'laid_papers' do
+            get '/', to: 'groups/made_available/availability_types/laid_papers#index'
           end
         end
       end
