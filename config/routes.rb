@@ -8,6 +8,7 @@ require_relative '../app/lib/ext/action_dispatch/routing/mapper.rb'
 Rails.application.routes.draw do
   id_format_regex           = self.class::ID_FORMAT_REGEX
   id_or_schema_format_regex = self.class::ID_OR_SCHEMA_FORMAT_REGEX
+  paper_types = self.class::PAPER_TYPES
 
   ### Root ###
   # /
@@ -500,6 +501,18 @@ Rails.application.routes.draw do
           # /groups/:group_id/made-available/availability-types/laid-papers
           scope '/laid-papers', as: 'laid_papers' do
             get '/', to: 'groups/made_available/availability_types/laid_papers#index'
+
+            # /groups/:group_id/made-available/availability-types/laid-papers/paper-types
+            scope '/paper-types', as: 'paper_types' do
+              get '/', to: 'groups/made_available/availability_types/laid_papers/paper_types#index'
+            end
+
+            scope '/paper-types', as: 'paper_type' do
+              # /groups/:group_id/made-available/availability-types/laid-papers/paper-types/:paper-type
+              scope '/:paper_type', constraints: lambda { |req| paper_types.include?(req.params[:paper_type]) } do
+                get '/', to: 'groups/made_available/availability_types/laid_papers/paper_types#show'
+              end
+            end
           end
         end
       end
@@ -590,10 +603,9 @@ Rails.application.routes.draw do
     end
 
     scope '/paper-types', as: 'paper_type' do
-      # /work-packages/paper-types/:paper-type
-      paper_type = ['statutory-instruments', 'proposed-negative-statutory-instruments']
 
-      scope '/:paper_type', constraints: lambda { |req| paper_type.include?(req.params[:paper_type]) } do
+      # /work-packages/paper-types/:paper-type
+      scope '/:paper_type', constraints: lambda { |req| paper_types.include?(req.params[:paper_type]) } do
         get '/', to: 'work_packages/paper_types#show'
 
         # /work-packages/paper-types/:paper-type/current
