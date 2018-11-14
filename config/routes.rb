@@ -505,9 +505,11 @@ Rails.application.routes.draw do
             # /groups/:group_id/made-available/availability-types/laid-papers/paper-types
             scope '/paper-types', as: 'paper_types' do
               get '/', to: 'groups/made_available/availability_types/laid_papers/paper_types#index'
+            end
 
+            scope '/paper-types', as: 'paper_type' do
               # /groups/:group_id/made-available/availability-types/laid-papers/paper-types/:paper-type
-              scope '/:paper-type', as: 'paper_types',  constraints: lambda { |req| paper_types.include?(req.params[:paper_type]) } do
+              scope '/:paper_type', constraints: lambda { |req| paper_types.include?(req.params[:paper_type]) } do
                 get '/', to: 'groups/made_available/availability_types/laid_papers/paper_types#show'
               end
             end
@@ -601,8 +603,8 @@ Rails.application.routes.draw do
     end
 
     scope '/paper-types', as: 'paper_type' do
-      # /work-packages/paper-types/:paper-type
 
+      # /work-packages/paper-types/:paper-type
       scope '/:paper_type', constraints: lambda { |req| paper_types.include?(req.params[:paper_type]) } do
         get '/', to: 'work_packages/paper_types#show'
 
