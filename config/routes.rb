@@ -288,6 +288,21 @@ Rails.application.routes.draw do
           end
         end
       end
+
+      # /houses/:house_id/made-available
+      scope '/made-available', as: 'made_available' do
+        get '/', to: 'houses/made_available#index'
+
+        # /houses/:house_id/made-available/availability-types
+        scope '/availability-types', as: 'availability_types' do
+          get '/', to: 'houses/made_available/availability_types#index'
+
+          # /houses/:house_id/made-available/availability-types/laid-papers
+          scope '/laid-papers', as: 'laid_papers' do
+            get '/', to: 'houses/made_available/availability_types/laid_papers#index'
+          end
+        end
+      end
     end
 
     # Allow lookups - but ensure they are SECOND in the routes list after /houses/:house_id
@@ -642,6 +657,18 @@ Rails.application.routes.draw do
           get '/', to: 'procedures/work_packages#current'
         end
       end
+    end
+  end
+
+  # /laid-papers
+  scope '/laid-papers', as: 'laid_papers' do
+    get '/', to: 'laid_papers#index'
+  end
+
+  # /laid-papers/:laid_paper_id
+  scope '/laid-papers', as: 'laid_paper' do
+    scope '/:laid_paper_id' do
+      get '/', to: 'laid_papers#show'
     end
   end
 end
