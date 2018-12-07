@@ -35,11 +35,37 @@ Rails.application.routes.draw do
 
   ### Proposed Negative Statutory Instruments ###
   get '/proposed-negative-statutory-instruments', to: 'proposed_negative_statutory_instruments#index', as: :proposed_negative_statutory_instruments
-  get '/proposed-negative-statutory-instruments/:proposed_negative_statutory_instrument_id', to: 'proposed_negative_statutory_instruments#show', as: :proposed_negative_statutory_instrument
+
+  ## Proposed Negative Statutory Instrument
+  scope '/proposed-negative-statutory-instruments', as: 'proposed_negative_statutory_instrument' do
+
+    # /proposed-negative-statutory-instruments/:proposed_negative_statutory_instrument_id
+    scope '/:proposed_negative_statutory_instrument_id' do
+      get '/', to: 'proposed_negative_statutory_instruments#show'
+
+      # /proposed-negative-statutory-instruments/:proposed_negative_statutory_instrument_id/work-packages
+      scope '/work-packages', as: 'work_packages' do
+        get '/', to: 'proposed_negative_statutory_instruments/work_packages#index'
+      end
+    end
+  end
 
   ### Statutory Instruments ###
   get '/statutory-instruments', to: 'statutory_instruments#index', as: :statutory_instruments
-  get '/statutory-instruments/:statutory_instrument_id', to: 'statutory_instruments#show', as: :statutory_instrument
+
+  ## Statutory Instrument
+  scope '/statutory-instruments', as: 'statutory_instrument' do
+
+    # /statutory-instruments/:statutory_instrument_id
+    scope '/:statutory_instrument_id' do
+      get '/', to: 'statutory_instruments#show'
+
+      # /statutory-instruments/:statutory_instrument_id/work-packages
+      scope '/work-packages', as: 'work_packages' do
+        get '/', to: 'statutory_instruments/work_packages#index'
+      end
+    end
+  end
 
   ### Articles ###
   get '/articles/:article_id', to: 'articles#show', article_id: id_format_regex, as: :article
