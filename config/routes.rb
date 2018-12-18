@@ -51,7 +51,9 @@ Rails.application.routes.draw do
   end
 
   ### Statutory Instruments ###
-  get '/statutory-instruments', to: 'statutory_instruments#index', as: :statutory_instruments
+  scope '/statutory-instruments', as: 'statutory_instruments' do
+    build_default_routes('statutory_instruments', current: false, lookup: true, postcode: false)
+  end
 
   ## Statutory Instrument
   scope '/statutory-instruments', as: 'statutory_instrument' do
