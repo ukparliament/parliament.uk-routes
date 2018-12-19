@@ -34,9 +34,11 @@ Rails.application.routes.draw do
   get '/laying-bodies', to: 'laying_bodies#index', as: :laying_bodies
 
   ### Proposed Negative Statutory Instruments ###
-  get '/proposed-negative-statutory-instruments', to: 'proposed_negative_statutory_instruments#index', as: :proposed_negative_statutory_instruments
+  scope '/proposed-negative-statutory-instruments', as: 'proposed_negative_statutory_instruments' do
+    build_default_routes('proposed_negative_statutory_instruments', current: false, lookup: true, postcode: false)
+  end
 
-  ## Proposed Negative Statutory Instrument
+  ### Proposed Negative Statutory Instrument ###
   scope '/proposed-negative-statutory-instruments', as: 'proposed_negative_statutory_instrument' do
 
     # /proposed-negative-statutory-instruments/:proposed_negative_statutory_instrument_id
