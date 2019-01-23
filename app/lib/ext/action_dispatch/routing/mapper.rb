@@ -4,7 +4,7 @@ module ActionDispatch
       # Mapper class provides methods for routes.rb
       ID_FORMAT_REGEX = /\w{8}/
       ID_OR_SCHEMA_FORMAT_REGEX = /\w{8}|schema\/\w+/
-      PAPER_TYPES = ['statutory-instruments', 'proposed-negative-statutory-instruments'].freeze
+      PAPER_TYPES = ['statutory-instruments', 'proposed-negative-statutory-instruments', 'treaties'].freeze
 
       # @since 0.0.1
       # Creates routes for listables

@@ -701,4 +701,22 @@ Rails.application.routes.draw do
       get '/', to: 'laid_papers#show'
     end
   end
+
+  # /treaties
+  scope '/treaties', as: 'treaties' do
+    build_default_routes('treaties', current: false, lookup: true, postcode: false)
+  end
+
+  # /treaties/:treaty_id
+  scope '/treaties', as: 'treaty' do
+    scope '/:treaty_id' do
+      get '/', to: 'treaties#show'
+
+      # /treaties/:treaty_id/work-packages
+      scope '/work-packages', as: 'work_packages' do
+        get '/', to: 'treaties/work_packages#index'
+      end
+    end
+  end
 end
+
